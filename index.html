@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🍅 25:00 — ManaDoro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;600&family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Background decorative blobs -->
+  <div class="bg-blob blob-1"></div>
+  <div class="bg-blob blob-2"></div>
+
+  <div class="app-wrapper">
+
+    <!-- Header Navigation -->
+    <header class="header">
+      <div class="logo">
+        <span class="logo-tomato">🍅</span>
+        <span class="logo-text">ManaDoro</span>
+      </div>
+      <nav class="mode-buttons">
+        <button class="mode-btn active" data-mode="focus">Focus</button>
+        <button class="mode-btn" data-mode="shortBreak">Short Break</button>
+        <button class="mode-btn" data-mode="longBreak">Long Break</button>
+      </nav>
+    </header>
+
+    <!-- Main Card -->
+    <main class="card" id="main-card">
+
+      <!-- Spotify / Media Section -->
+      <section class="spotify-section" id="spotify-section">
+        <div class="spotify-header">
+          <span class="spotify-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="12" fill="#1DB954"/>
+              <path d="M17.9 10.9C14.7 9 9.35 8.8 6.3 9.75C5.8 9.9 5.3 9.6 5.15 9.1C5 8.6 5.3 8.1 5.8 7.95C9.3 6.85 15.15 7.1 18.85 9.25C19.3 9.5 19.45 10.1 19.2 10.55C18.95 10.95 18.35 11.1 17.9 10.9ZM17.8 13.7C17.55 14.1 17.05 14.2 16.65 13.95C14.05 12.35 10.1 11.9 7.05 12.85C6.6 12.95 6.1 12.7 5.95 12.25C5.85 11.8 6.1 11.3 6.55 11.15C10.05 10.1 14.4 10.6 17.4 12.45C17.75 12.65 17.9 13.2 17.8 13.7ZM16.6 16.45C16.4 16.75 16.05 16.85 15.75 16.65C13.5 15.3 10.7 15 7.4 15.75C7.05 15.85 6.75 15.6 6.65 15.3C6.55 14.95 6.8 14.65 7.1 14.55C10.7 13.75 13.8 14.1 16.3 15.6C16.65 15.75 16.75 16.15 16.6 16.45Z" fill="white"/>
+            </svg>
+          </span>
+          <span class="spotify-status" id="spotify-status">Menunggu Musik...</span>
+          <span class="spotify-dot" id="spotify-dot"></span>
+        </div>
+        <div class="song-info">
+          <div class="song-title-wrapper">
+            <p class="song-title" id="song-title">Tidak ada lagu yang diputar</p>
+          </div>
+          <p class="song-artist" id="song-artist">Buka Spotify / Browser dan putar lagu</p>
+        </div>
+      </section>
+
+      <!-- Digital Display Container -->
+      <div class="clock-container">
+        <div class="digital-display" id="digital-display">
+          <div class="digital-box">
+            <span class="digit" id="d-m0">2</span>
+            <span class="digit" id="d-m1">5</span>
+          </div>
+          <div class="digital-colon">
+            <span class="colon-dot"></span>
+            <span class="colon-dot"></span>
+          </div>
+          <div class="digital-box">
+            <span class="digit" id="d-s0">0</span>
+            <span class="digit" id="d-s1">0</span>
+          </div>
+        </div>
+
+        <!-- Mode subtitle -->
+        <div class="mode-label" id="mode-label">FOCUS TIME</div>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="progress-container">
+        <div class="progress-track">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <span class="progress-text" id="progress-text">0%</span>
+      </div>
+
+      <!-- Control Buttons -->
+      <div class="controls">
+        <button class="btn-action btn-reset" id="btn-reset" title="Reset (R)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+            <path d="M3 3v5h5"/>
+          </svg>
+        </button>
+
+        <button class="btn-start" id="btn-start" title="Start/Pause (Space)">
+          <span class="btn-icon" id="btn-icon">
+            <svg id="icon-play" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="6,4 20,12 6,20"/>
+            </svg>
+            <svg id="icon-pause" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="display:none">
+              <rect x="6" y="4" width="4" height="16" rx="1.5"/>
+              <rect x="14" y="4" width="4" height="16" rx="1.5"/>
+            </svg>
+          </span>
+          <span id="btn-label">Start</span>
+        </button>
+
+        <button class="btn-action btn-skip" id="btn-skip" title="Lewati Sesi (S)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="5,4 15,12 5,20" fill="currentColor"/>
+            <line x1="19" y1="5" x2="19" y2="19"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Session Dots Tracker -->
+      <div class="sessions-indicator">
+        <div class="sessions-dots" id="sessions-dots">
+          <span class="session-dot" data-index="0"></span>
+          <span class="session-dot" data-index="1"></span>
+          <span class="session-dot" data-index="2"></span>
+          <span class="session-dot" data-index="3"></span>
+        </div>
+        <span class="sessions-text" id="sessions-count">0 Sesi Selesai</span>
+      </div>
+
+    </main>
+
+    <!-- History Section Card -->
+    <section class="card history-card" id="history-card">
+      <div class="history-header">
+        <div class="history-title-group">
+          <span class="history-icon">📋</span>
+          <h2 class="history-title">Riwayat Sesi</h2>
+          <span class="history-badge" id="history-badge">0</span>
+        </div>
+        <button class="btn-clear-history" id="btn-clear-history" title="Hapus Semua Riwayat">
+          Hapus
+        </button>
+      </div>
+
+      <div class="history-list" id="history-list">
+        <div class="history-empty">
+          <p>Belum ada riwayat sesi. Mulai timer dan selesaikan fokusmu!</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
